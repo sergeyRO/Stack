@@ -30,7 +30,7 @@ class Stack:
 
     def balance(self, parentheses):
         if len(parentheses)%2 != 0:
-            return "Несбалансированно"
+            return "Несбалансированны"
         else:
             for item in parentheses:
                 if self.peek() == '{' and item == '}':
