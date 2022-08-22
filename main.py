@@ -1,4 +1,4 @@
-from Stack import Stack
+from Stack import Stack, StackBalance
 
 if __name__ == '__main__':
     #Для задания №1
@@ -14,5 +14,4 @@ if __name__ == '__main__':
     print(stack.peek())
 
     #Для задания №2
-    stack_balance = Stack()
-    print(stack_balance.balance('[{]'))
+    print(StackBalance().balance('[{}[][[]]]'))

@@ -28,9 +28,10 @@ class Stack:
         #возвращает количество элементов
         return len(self.stack)
 
+class StackBalance(Stack):
     def balance(self, parentheses):
         if len(parentheses)%2 != 0:
-            return "Несбалансированны"
+            return False
         else:
             for item in parentheses:
                 if self.peek() == '{' and item == '}':
@@ -42,6 +43,6 @@ class Stack:
                 else:
                     self.push(item)
             if self.isEmpty():
-                return "Сбалансированны"
+                return True
             else:
-                return "Несбалансированны"
+                return False

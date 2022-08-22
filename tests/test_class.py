@@ -1,11 +1,10 @@
 import pytest
 
-from Stack import Stack
+from Stack import Stack, StackBalance
 
 stack = Stack()
-
 el = [(15),(25),(1),('A'),('S'),(101),(1)]
-balance = [('{[(({[]}))]}'),('{[(({[}))]}'),('{[(({[[[]}))]}')]
+
 
 def test_isEmpty():
     assert stack.isEmpty() == True
@@ -24,10 +23,8 @@ def test_peek():
 def test_size():
     assert stack.size() == 6
 
-@pytest.mark.parametrize("balance", balance)
-def test_balance(balance):
-    b = stack.balance(balance)
-    if b == 'Сбалансированны':
-        assert b == 'Сбалансированны'
-    else:
-        assert b == 'Несбалансированны'
+balances = [('{[(({[]}))]}', True), ('{[(({[}))]}', False), ('{[(({[[[]}))]}', False)]
+
+@pytest.mark.parametrize("balance, res", balances)
+def test_balance(balance, res):
+    assert StackBalance().balance(balance) == res
